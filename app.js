@@ -207,7 +207,8 @@ function loadSearch(item) {
   updateSelectionCount();
   currentSearchId = item.id;
   showSearchResults(item);
-  results.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  location.hash = '#search';
+  requestAnimationFrame(() => results.scrollIntoView({ behavior: 'smooth', block: 'start' }));
 }
 async function optimizeImage(file) {
   const bitmap = await createImageBitmap(file);
@@ -336,22 +337,38 @@ document.getElementById('saveSearchButton').addEventListener('click', () => {
   const current = searches.find(item => item.id === currentSearchId);
   if (current) setSaved(current.id, !current.saved);
 });
+function renderRoute() {
+  const validRoutes = ['home', 'search', 'saved', 'how-it-works'];
+  const route = validRoutes.includes(location.hash.slice(1)) ? location.hash.slice(1) : 'home';
+  document.querySelectorAll('[data-page]').forEach(page => {
+    const isActive = page.dataset.page === route;
+    page.hidden = !isActive;
+    page.classList.toggle('is-active', isActive);
+  });
+  document.querySelectorAll('.menu-panel a[href^="#"]').forEach(link => {
+    if (link.hash === `#${route}`) link.setAttribute('aria-current', 'page');
+    else link.removeAttribute('aria-current');
+  });
+  if (route === 'saved') {
+    activeView = 'saved';
+    renderHistory();
+  }
+  siteMenu.open = false;
+  document.getElementById(route).scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+window.addEventListener('hashchange', renderRoute);
 document.querySelectorAll('[data-history-view]').forEach(tab => tab.addEventListener('click', () => { activeView = tab.dataset.historyView; renderHistory(); }));
-document.querySelectorAll('[data-nav]').forEach(nav => nav.addEventListener('click', () => {
-  document.querySelectorAll('.nav-button').forEach(item => item.classList.toggle('active', item === nav));
-  if (nav.dataset.nav === 'saved') { activeView = 'saved'; renderHistory(); document.getElementById('activityPanel').scrollIntoView({ behavior: 'smooth', block: 'center' }); }
-  else if (nav.dataset.nav === 'help') document.getElementById('helpModal').hidden = false;
-}));
-document.getElementById('closeHelp').addEventListener('click', () => { document.getElementById('helpModal').hidden = true; });
-document.getElementById('understandHelp').addEventListener('click', () => { document.getElementById('helpModal').hidden = true; });
-document.getElementById('helpModal').addEventListener('click', event => { if (event.target.id === 'helpModal') event.currentTarget.hidden = true; });
 document.addEventListener('keydown', event => {
-  if (event.key !== 'Escape') return;
-  document.getElementById('helpModal').hidden = true;
-  if (siteMenu.open) { siteMenu.open = false; siteMenu.querySelector('summary').focus(); }
+  if (event.key === 'Escape' && siteMenu.open) { siteMenu.open = false; siteMenu.querySelector('summary').focus(); }
 });
 document.addEventListener('click', event => { if (siteMenu.open && !siteMenu.contains(event.target)) siteMenu.open = false; });
-siteMenu.querySelectorAll('a, button').forEach(item => item.addEventListener('click', () => { siteMenu.open = false; }));
+siteMenu.querySelectorAll('a, button').forEach(item => item.addEventListener('click', () => {
+  if (item.getAttribute('href') === '#saved') { activeView = 'saved'; renderHistory(); }
+  siteMenu.open = false;
+}));
 updateSelectionCount();
 renderHistory();
+renderRoute();
 checkProvider();
+

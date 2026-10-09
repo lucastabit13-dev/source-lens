@@ -10,19 +10,20 @@
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="#top" aria-label="SourceLens home"><span class="brand-symbol" aria-hidden="true"><i></i><i></i><i></i></span><span>SourceLens</span></a>
+    <a class="brand" href="#home" aria-label="SourceLens home"><span class="brand-symbol" aria-hidden="true"><i></i><i></i><i></i></span><span>SourceLens</span></a>
     <details class="site-menu" id="siteMenu">
       <summary class="menu-trigger" aria-label="Open navigation menu"><span>Menu</span><span class="menu-icon" aria-hidden="true"><i></i><i></i></span></summary>
       <nav class="menu-panel" aria-label="Main navigation">
         <a href="#search">Visual search <span aria-hidden="true">↘</span></a>
-        <button class="nav-button" type="button" data-nav="saved">Saved searches <span class="nav-count" id="savedCount">0</span></button>
-        <button class="nav-button" type="button" data-nav="help">How it works <span aria-hidden="true">↗</span></button>
+        <a href="#saved">Saved searches <span class="nav-count" id="savedCount">0</span></a>
+        <a href="#how-it-works">How it works <span aria-hidden="true">↗</span></a>
       </nav>
     </details>
     <a class="header-cta" href="#search">Start looking <span aria-hidden="true">↗</span></a>
   </header>
 
   <main id="top">
+    <div class="page-view" id="home" data-page="home">
     <section class="hero" aria-labelledby="heroTitle">
       <div class="hero-grain" aria-hidden="true"></div>
       <div class="hero-copy">
@@ -46,7 +47,9 @@
       <span class="strip-label">THE IDEA</span><p>Good taste travels. <em>Find where it leads.</em></p><span class="strip-mark" aria-hidden="true">✳</span>
     </section>
 
-    <section class="search-section" id="search" aria-labelledby="searchTitle">
+    </div>
+
+    <section class="page-view search-section" id="search" data-page="search" aria-labelledby="searchTitle">
       <div class="section-intro">
         <div class="section-overline"><span>01</span><span class="section-overline-line"></span> YOUR SEARCH STARTS HERE</div>
         <h2 id="searchTitle">Start with something<br><em>you spotted.</em></h2>
@@ -89,14 +92,32 @@
       </section>
     </section>
 
-    <section class="history-section" id="activityPanel" aria-label="Search history">
+    <section class="page-view history-section" id="saved" data-page="saved" aria-label="Search history">
       <div class="history-intro"><div class="section-overline"><span>YOUR NOTEBOOK</span><span class="section-overline-line"></span></div><h2>Keep a few<br><em>good finds.</em></h2><p>Recent and saved searches live in this browser.</p></div>
       <div class="history-content"><div class="history-heading"><div><h3>Search history</h3><span id="activityCount">0 searches</span></div><div class="history-tabs" role="tablist" aria-label="Search history view"><button type="button" role="tab" id="tab-recent" aria-controls="historyList" class="history-tab active" data-history-view="recent" aria-selected="true">Recent</button><button type="button" role="tab" id="tab-saved" aria-controls="historyList" class="history-tab" data-history-view="saved" aria-selected="false">Saved <span id="historySavedCount">0</span></button></div></div><div id="historyList" class="history-list" role="tabpanel" aria-labelledby="tab-recent" aria-live="polite"><div class="history-empty"><span class="empty-mark">↗</span><div><strong>Your searches will appear here</strong><p>Run a marketplace search to start a history.</p></div></div></div></div>
     </section>
+    <section class="page-view how-page" id="how-it-works" data-page="how-it-works" aria-labelledby="howPageTitle">
+      <div class="how-page-hero">
+        <div class="section-overline"><span>HOW IT WORKS</span><span class="section-overline-line"></span> A PHOTO IN, A SHORTLIST OUT</div>
+        <h1 id="howPageTitle">From a photo<br>to a <em>shortlist.</em></h1>
+        <p>SourceLens compares your image with live visual search results and gathers marketplace listings in one place.</p>
+      </div>
+      <div class="how-page-content">
+        <div class="how-page-note"><span>✳</span><p>No product description needed. The photo itself powers the search.</p></div>
+        <div class="help-steps">
+          <div><b>01</b><span>Upload a clear photo of the item. It is sent to the visual search provider for matching.</span></div>
+          <div><b>02</b><span>Choose AliExpress, DHgate, Alibaba, or any combination of the three.</span></div>
+          <div><b>03</b><span>Compare the visual matches, then review the listing and seller before buying.</span></div>
+        </div>
+        <a class="hero-button how-start" href="#search">Start a visual search <span aria-hidden="true">↗</span></a>
+        <p class="how-privacy">Your photo is processed for search and is not stored by SourceLens. Search history stays in this browser.</p>
+      </div>
+    </section>
   </main>
-  <footer class="site-footer"><a class="brand footer-brand" href="#top"><span class="brand-symbol" aria-hidden="true"><i></i><i></i><i></i></span><span>SourceLens</span></a><span>Look closely. Shop thoughtfully.</span><a href="#search">Back to search ↑</a></footer>
+  <footer class="site-footer"><a class="brand footer-brand" href="#home"><span class="brand-symbol" aria-hidden="true"><i></i><i></i><i></i></span><span>SourceLens</span></a><span>Look closely. Shop thoughtfully.</span><a href="#search">Back to search ↑</a></footer>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <div class="modal-backdrop" id="helpModal" hidden><section class="help-modal" role="dialog" aria-modal="true" aria-labelledby="helpTitle"><button class="modal-close" id="closeHelp" type="button" aria-label="Close">×</button><div class="section-overline"><span>HOW IT WORKS</span><span class="section-overline-line"></span></div><h2 id="helpTitle">From a photo<br>to a <em>shortlist.</em></h2><p>Upload a photo and SourceLens compares it visually against live image-search results. It does not generate a description or use one to find matches.</p><div class="help-steps"><div><b>01</b><span>Upload a clear photo. It is sent to the visual search provider.</span></div><div><b>02</b><span>Choose the marketplaces where you want to see visual matches.</span></div><div><b>03</b><span>Compare the pictured items and check each seller and listing.</span></div></div><button class="search-button" id="understandHelp" type="button">Back to search <span aria-hidden="true">↗</span></button></section></div>
   <script src="app.js"></script>
 </body>
 </html>
+
+

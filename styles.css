@@ -217,3 +217,23 @@ a { color: inherit; }
 .match-empty a { color: #70528d; font-size: 10px; font-weight: 700; text-decoration: none; }
 .match-empty a:hover { text-decoration: underline; }
 @media (max-width: 700px) { .visual-result-photo { height: 225px; }.reference-footer > span:first-child { max-width: 100%; } }
+/* Hash routes keep each view in the same document. */
+[data-page][hidden] { display: none !important; }
+.menu-panel a[aria-current="page"] { background: #ebe7dc; color: #342f39; }
+.how-page { min-height: calc(100vh - 162px); padding: clamp(58px, 9vw, 105px) 24px 90px; background: var(--paper); }
+.how-page-hero { max-width: 760px; margin: 0 auto 44px; text-align: center; }
+.how-page-hero .section-overline { justify-content: center; }
+.how-page-hero h1 { margin: 23px 0 17px; font: 400 clamp(48px, 7vw, 78px)/.96 var(--serif); letter-spacing: -.045em; }
+.how-page-hero h1 em { color: #8c70ae; font-weight: 400; }
+.how-page-hero > p { max-width: 470px; margin: 0 auto; color: #716d65; font-size: 13px; line-height: 1.8; }
+.how-page-content { max-width: 720px; margin: 0 auto; padding: clamp(22px, 4vw, 38px); border: 1px solid #ded8cc; background: #fbfaf6; box-shadow: 0 20px 50px rgba(54, 46, 35, .06); }
+.how-page-note { display: flex; align-items: center; gap: 13px; padding: 14px 16px; background: #f1ecf5; color: #5d4e70; }
+.how-page-note > span { color: #8b6bad; font-size: 19px; }
+.how-page-note p { margin: 0; font-size: 11px; line-height: 1.6; }
+.how-page .help-steps { margin: 16px 0 22px; }
+.how-page .help-steps div { gap: 17px; padding: 17px 3px; border-color: #e4ded3; color: #58534c; font-size: 11px; }
+.how-page .help-steps b { color: #8b6bad; }
+.how-start { background: var(--ink); color: var(--chalk); box-shadow: 0 3px 0 #aaa39a; }
+.how-start:hover { color: var(--chalk); }
+.how-privacy { margin: 17px 0 0; color: #8a847a; font-size: 9px; line-height: 1.6; }
+@media (max-width: 700px) { .how-page { min-height: calc(100vh - 140px); padding: 58px 18px 65px; }.how-page-hero { margin-bottom: 30px; }.how-page-hero > p { font-size: 12px; } }
