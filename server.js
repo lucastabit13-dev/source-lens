@@ -214,7 +214,6 @@ function mapVisualMatches(rawResults, selected) {
   }
   return matches.sort((a, b) => Number(b.exact) - Number(a.exact) || a.position - b.position);
 }
-
 async function handleImageSearch(req, res) {
   if (!SERPAPI_KEY) {
     return sendJson(res, 503, { error: 'Visual search is not configured yet. Add your SerpApi key to the .env file, then restart SourceLens.' });
@@ -282,3 +281,9 @@ server.listen(PORT, '127.0.0.1', () => {
   console.log(`SourceLens is running at http://127.0.0.1:${PORT}`);
   if (!SERPAPI_KEY) console.log('Add SERPAPI_API_KEY to .env to enable image matching.');
 });
+
+
+
+
+
+

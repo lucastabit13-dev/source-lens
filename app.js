@@ -196,8 +196,7 @@ function showSearchResults(item) {
   document.getElementById('resultCount').textContent = `${matches.length} ${matches.length === 1 ? 'listing' : 'listings'}`;
   document.getElementById('resultSummary').textContent = matches.length
     ? `${exactCount} provider-marked exact ${exactCount === 1 ? 'match' : 'matches'} and ${matches.length - exactCount} similar ${matches.length - exactCount === 1 ? 'listing' : 'listings'}, found from the photo.`
-    : 'The photo search returned no results on the selected marketplaces.';
-  const saveButton = document.getElementById('saveSearchButton');
+    : 'The photo search returned no results on the selected marketplaces.';  const saveButton = document.getElementById('saveSearchButton');
   saveButton.classList.toggle('saved', Boolean(item.saved));
   saveButton.innerHTML = item.saved ? '★&nbsp; Saved' : '☆&nbsp; Save search';
   results.classList.add('show');
@@ -371,4 +370,11 @@ updateSelectionCount();
 renderHistory();
 renderRoute();
 checkProvider();
+
+
+
+
+
+
+
 

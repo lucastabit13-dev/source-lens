@@ -42,3 +42,9 @@ The app listens on `http://127.0.0.1:3000` by default. To use another port, set 
 
 Photos are sent to SerpApi and Google Lens to perform the search. Review the providers' terms and privacy practices before using the app with sensitive images.
 
+
+
+
+
+
+

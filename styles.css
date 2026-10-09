@@ -237,3 +237,5 @@ a { color: inherit; }
 .how-start:hover { color: var(--chalk); }
 .how-privacy { margin: 17px 0 0; color: #8a847a; font-size: 9px; line-height: 1.6; }
 @media (max-width: 700px) { .how-page { min-height: calc(100vh - 140px); padding: 58px 18px 65px; }.how-page-hero { margin-bottom: 30px; }.how-page-hero > p { font-size: 12px; } }
+
+
