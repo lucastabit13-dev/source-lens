@@ -1,20 +1,23 @@
 # SourceLens
 
-SourceLens is a visual product-sourcing concept. Start with a product photo, add a few descriptive details, and prepare keyword searches for selected marketplaces.
+SourceLens searches for visual product matches from a photo. It sends the image to Google Lens through SerpApi, then returns matching results from AliExpress, DHgate, and Alibaba. It does not generate a product description or use text to find matches.
 
-## Run it
+## Run locally
 
-Open `index.html` in a modern browser. It has no build step or package dependencies.
+1. Install Node.js 20 or newer.
+2. Create a SerpApi account and copy its private API key.
+3. Copy `.env.example` to `.env`, then set `SERPAPI_API_KEY` in `.env`.
+4. Run `npm start` from this folder.
+5. Open `http://127.0.0.1:3000`.
 
-## Included
+The key stays on the server and is never sent to the browser. Do not commit `.env`; it is ignored by Git. The provider requires an account and may apply its own usage limits and charges.
 
-- A responsive editorial-style interface with an illustrated sample object.
-- Local image selection, drag-and-drop, and preview (images are not uploaded).
-- Search phrase refinement and marketplace selection for AliExpress, DHgate, and Alibaba.
-- Keyword search links that open each marketplace's own live listings.
-- Locally stored recent and saved searches.
-- A short guide, responsive layouts, keyboard focus states, and reduced-motion support.
+## Image search behavior
 
-## Current scope
+- The browser compresses the selected photo to fit the provider's 500 KB upload limit.
+- The backend uploads the image to SerpApi's image endpoint, then searches it with Google Lens.
+- Results are filtered to the selected marketplace domains and sorted with provider-marked exact visual matches first.
+- Product photos are not stored by SourceLens. Search results and saved searches are stored in this browser.
+- An “exact visual match” is a provider label, not a guarantee of product identity, authenticity, materials, or origin. Check listing details and sellers before buying.
 
-The image is a visual reference only; SourceLens does not identify the product or compare image results. Search links are built from the text description and selected preferences. Direct image matching and in-app listings would need an image-matching service and approved marketplace API or feed access. History and saved searches remain in the current browser.
+Photos are sent to SerpApi and Google Lens to perform the search. Review the provider's terms and privacy practices before using the app with sensitive images.
