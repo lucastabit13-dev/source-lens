@@ -1,12 +1,35 @@
 {
-  "name": "sourcelens",
-  "version": "1.0.0",
-  "private": true,
-  "description": "Search marketplaces for visual product matches from a photo.",
+  "name": "@lucastabit13/sourcelens",
+  "version": "1.0.1",
+  "description": "Search AliExpress, DHgate, and Alibaba for visual product matches from a photo.",
+  "keywords": [
+    "visual-search",
+    "google-lens",
+    "aliexpress",
+    "dhgate",
+    "alibaba",
+    "product-search"
+  ],
+  "files": [
+    "README.md",
+    "app.js",
+    "index.html",
+    "server.js",
+    "styles.css",
+    "assets/",
+    "bin/",
+    ".env.example"
+  ],
+  "bin": {
+    "sourcelens": "bin/sourcelens.cjs"
+  },
   "scripts": {
     "start": "node server.js"
   },
   "engines": {
     "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
