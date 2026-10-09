@@ -11,11 +11,14 @@
 <body>
   <header class="site-header">
     <a class="brand" href="#top" aria-label="SourceLens home"><span class="brand-symbol" aria-hidden="true"><i></i><i></i><i></i></span><span>SourceLens</span></a>
-    <nav class="main-nav" aria-label="Main navigation">
-      <a href="#search">Visual search</a>
-      <button class="nav-button" type="button" data-nav="saved">Saved <span class="nav-count" id="savedCount">0</span></button>
-      <button class="nav-button" type="button" data-nav="help">How it works</button>
-    </nav>
+    <details class="site-menu" id="siteMenu">
+      <summary class="menu-trigger" aria-label="Open navigation menu"><span>Menu</span><span class="menu-icon" aria-hidden="true"><i></i><i></i></span></summary>
+      <nav class="menu-panel" aria-label="Main navigation">
+        <a href="#search">Visual search <span aria-hidden="true">↘</span></a>
+        <button class="nav-button" type="button" data-nav="saved">Saved searches <span class="nav-count" id="savedCount">0</span></button>
+        <button class="nav-button" type="button" data-nav="help">How it works <span aria-hidden="true">↗</span></button>
+      </nav>
+    </details>
     <a class="header-cta" href="#search">Start looking <span aria-hidden="true">↗</span></a>
   </header>
 

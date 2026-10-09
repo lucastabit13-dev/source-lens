@@ -6,6 +6,7 @@
     const searchButton = document.getElementById('searchButton');
     const results = document.getElementById('results');
     const historyList = document.getElementById('historyList');
+    const siteMenu = document.getElementById('siteMenu');
     const characterCount = document.getElementById('characterCount');
     const storageKey = 'sourcelens-workspace-v1';
     let imageUrl = null;
@@ -229,7 +230,13 @@
     document.getElementById('closeHelp').addEventListener('click', () => { document.getElementById('helpModal').hidden = true; });
     document.getElementById('understandHelp').addEventListener('click', () => { document.getElementById('helpModal').hidden = true; });
     document.getElementById('helpModal').addEventListener('click', event => { if (event.target.id === 'helpModal') event.currentTarget.hidden = true; });
-    document.addEventListener('keydown', event => { if (event.key === 'Escape') document.getElementById('helpModal').hidden = true; });
+    document.addEventListener('keydown', event => {
+      if (event.key !== 'Escape') return;
+      document.getElementById('helpModal').hidden = true;
+      if (siteMenu.open) { siteMenu.open = false; siteMenu.querySelector('summary').focus(); }
+    });
+    document.addEventListener('click', event => { if (siteMenu.open && !siteMenu.contains(event.target)) siteMenu.open = false; });
+    siteMenu.querySelectorAll('a, button').forEach(item => item.addEventListener('click', () => { siteMenu.open = false; }));
     updatePhrasePreview();
     renderHistory();
   
