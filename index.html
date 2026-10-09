@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f1e9">
+  <meta name="description" content="Find similar products across marketplaces from a photo and a few words.">
+  <title>SourceLens — See it. Source it.</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="SourceLens home"><span class="brand-symbol" aria-hidden="true"><i></i><i></i><i></i></span><span>SourceLens</span></a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="#search">Visual search</a>
+      <button class="nav-button" type="button" data-nav="saved">Saved <span class="nav-count" id="savedCount">0</span></button>
+      <button class="nav-button" type="button" data-nav="help">How it works</button>
+    </nav>
+    <a class="header-cta" href="#search">Start looking <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="hero-grain" aria-hidden="true"></div>
+      <div class="hero-copy">
+        <div class="hero-eyebrow"><span class="eyebrow-rule"></span> A visual sourcing tool</div>
+        <h1 id="heroTitle">See it.<br><em>Source it.</em></h1>
+        <p>That jacket. Those shoes. The little thing you spotted somewhere.<br class="desktop-break"> Find similar pieces across the places they’re made and sold.</p>
+        <div class="hero-actions"><a class="hero-button" href="#search">Start with a photo <span aria-hidden="true">↘</span></a><span class="hero-caption">No account needed to look around.</span></div>
+      </div>
+      <div class="hero-art" role="img" aria-label="Illustration of a vintage style sneaker">
+        <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+        <span class="art-spark spark-one" aria-hidden="true">✳</span><span class="art-spark spark-two" aria-hidden="true">✴</span>
+        <span class="art-note note-one">A good find<br>has a backstory.</span>
+        <div class="shoe-shadow"></div><img class="hero-shoe" src="assets/sneaker.svg" alt="Illustrated cream retro sneaker with suede panels">
+        <span class="art-index">OBJECT STUDY&nbsp; / &nbsp;001</span>
+      </div>
+      <a class="scroll-cue" href="#search"><span class="scroll-line"></span> SCROLL TO EXPLORE</a>
+      <div class="hero-side-note">FROM A PHOTO<br>TO A SHORTLIST</div>
+    </section>
+
+    <section class="intro-strip" aria-label="SourceLens introduction">
+      <span class="strip-label">THE IDEA</span><p>Good taste travels. <em>Find where it leads.</em></p><span class="strip-mark" aria-hidden="true">✳</span>
+    </section>
+
+    <section class="search-section" id="search" aria-labelledby="searchTitle">
+      <div class="section-intro">
+        <div class="section-overline"><span>01</span><span class="section-overline-line"></span> YOUR SEARCH STARTS HERE</div>
+        <h2 id="searchTitle">Start with something<br><em>you spotted.</em></h2>
+        <p>Add a reference, describe the details, then choose where to look.</p>
+      </div>
+      <div class="workspace">
+        <section class="reference-card" aria-labelledby="referenceTitle">
+          <div class="card-topline"><div><span class="card-step">01</span><h3 id="referenceTitle">Your reference</h3></div><span class="format-note">JPG · PNG · WEBP</span></div>
+          <div class="dropzone" id="dropzone">
+            <input type="file" id="fileInput" accept="image/*" aria-label="Choose a product image">
+            <div class="empty-reference" id="emptyReference">
+              <div class="reference-backplate"></div>
+              <img class="reference-illustration" src="assets/sneaker.svg" alt="Sample illustration of a sneaker">
+              <span class="reference-badge">SAMPLE OBJECT</span>
+              <div class="empty-reference-copy"><span class="upload-glyph" aria-hidden="true">↥</span><strong>Drop a photo here</strong><span>or <u>browse your files</u></span></div>
+            </div>
+            <img id="preview" alt="Selected product reference">
+            <div class="image-caption" id="imageCaption"></div>
+          </div>
+          <div class="reference-footer"><span><span class="privacy-dot"></span>Photo stays on this device</span><button id="trySample" class="sample-button" type="button">Try the sample&nbsp; ↗</button></div>
+          <div class="description-field">
+            <label for="description"><span>02</span> Describe what caught your eye</label>
+            <div class="input-wrap"><input id="description" type="text" maxlength="120" placeholder="e.g. cream retro sneaker, suede panels"><span class="input-counter" id="characterCount">0 / 120</span></div>
+          </div>
+        </section>
+
+        <section class="search-card" aria-labelledby="destinationsTitle">
+          <div class="card-topline search-card-title"><div><span class="card-step">03</span><h3 id="destinationsTitle">Choose where to look</h3></div><span class="selected-summary"><b id="selectedCount">3</b> selected</span></div>
+          <div class="market-list">
+            <label class="market-option ali"><span class="market-check"><input class="switch" type="checkbox" value="aliexpress" checked aria-label="Search AliExpress"><i></i></span><span class="market-brand" aria-hidden="true">a.</span><span class="market-copy"><span class="platform-name">AliExpress</span><span class="platform-sub">Everyday finds, shipped worldwide</span></span><span class="market-arrow" aria-hidden="true">↗</span></label>
+            <label class="market-option dh"><span class="market-check"><input class="switch" type="checkbox" value="dhgate" checked aria-label="Search DHgate"><i></i></span><span class="market-brand" aria-hidden="true">dh</span><span class="market-copy"><span class="platform-name">DHgate</span><span class="platform-sub">Retail and wholesale listings</span></span><span class="market-arrow" aria-hidden="true">↗</span></label>
+            <label class="market-option ab"><span class="market-check"><input class="switch" type="checkbox" value="alibaba" checked aria-label="Search Alibaba"><i></i></span><span class="market-brand" aria-hidden="true">阿</span><span class="market-copy"><span class="platform-name">Alibaba</span><span class="platform-sub">Products and supplier options</span></span><span class="market-arrow" aria-hidden="true">↗</span></label>
+          </div>
+          <div class="refine-block"><div class="refine-heading"><span>Give the search a nudge</span><span>OPTIONAL</span></div><div class="chips" role="group" aria-label="Search preferences"><button class="chip" type="button" data-term="similar style">Similar style</button><button class="chip" type="button" data-term="low price">Lower price</button><button class="chip" type="button" data-term="bulk supplier">Bulk supplier</button></div></div>
+          <div class="phrase-preview"><span class="phrase-label">YOUR SEARCH PHRASE</span><span class="phrase-value" id="phrasePreview">Add a description to see your search phrase.</span></div>
+          <button class="search-button" id="searchButton" type="button"><span>Prepare marketplace searches</span><span class="search-button-arrow" aria-hidden="true">↗</span></button>
+          <p class="under-button">Choose a marketplace below to open its live listings.</p>
+        </section>
+      </div>
+
+      <section class="results" id="results" aria-live="polite">
+        <div class="results-head"><div><div class="section-overline"><span>04</span><span class="section-overline-line"></span> YOUR SHORTLIST</div><h2>Take a look around.</h2><p id="resultSummary">Open a marketplace to browse current listings.</p></div><div class="result-actions"><span class="result-count" id="resultCount">0 markets</span><button class="save-search" type="button" id="saveSearchButton">☆&nbsp; Save search</button></div></div>
+        <div class="result-grid" id="resultGrid"></div>
+        <div class="notice"><span aria-hidden="true">✳</span><span>These links search by your description. A visual match cannot verify a product’s authenticity, materials, or origin. Check seller details before buying.</span></div>
+      </section>
+    </section>
+
+    <section class="history-section" id="activityPanel" aria-label="Search history">
+      <div class="history-intro"><div class="section-overline"><span>YOUR NOTEBOOK</span><span class="section-overline-line"></span></div><h2>Keep a few<br><em>good finds.</em></h2><p>Recent and saved searches live in this browser.</p></div>
+      <div class="history-content"><div class="history-heading"><div><h3>Search history</h3><span id="activityCount">0 searches</span></div><div class="history-tabs" role="tablist" aria-label="Search history view"><button type="button" role="tab" id="tab-recent" aria-controls="historyList" class="history-tab active" data-history-view="recent" aria-selected="true">Recent</button><button type="button" role="tab" id="tab-saved" aria-controls="historyList" class="history-tab" data-history-view="saved" aria-selected="false">Saved <span id="historySavedCount">0</span></button></div></div><div id="historyList" class="history-list" role="tabpanel" aria-labelledby="tab-recent" aria-live="polite"><div class="history-empty"><span class="empty-mark">↗</span><div><strong>Your searches will appear here</strong><p>Run a marketplace search to start a history.</p></div></div></div></div>
+    </section>
+  </main>
+  <footer class="site-footer"><a class="brand footer-brand" href="#top"><span class="brand-symbol" aria-hidden="true"><i></i><i></i><i></i></span><span>SourceLens</span></a><span>Look closely. Shop thoughtfully.</span><a href="#search">Back to search ↑</a></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="modal-backdrop" id="helpModal" hidden><section class="help-modal" role="dialog" aria-modal="true" aria-labelledby="helpTitle"><button class="modal-close" id="closeHelp" type="button" aria-label="Close">×</button><div class="section-overline"><span>HOW IT WORKS</span><span class="section-overline-line"></span></div><h2 id="helpTitle">From a photo<br>to a <em>shortlist.</em></h2><p>Add a reference image, describe the item in a few words, then choose where to search. SourceLens prepares marketplace search links from your phrase; each marketplace shows its own live listings.</p><div class="help-steps"><div><b>01</b><span>Upload a clear product photo. It stays on this device.</span></div><div><b>02</b><span>Adjust the search phrase and select marketplaces.</span></div><div><b>03</b><span>Open each marketplace and review the seller and listing details.</span></div></div><button class="search-button" id="understandHelp" type="button">Back to search <span aria-hidden="true">↗</span></button></section></div>
+  <script src="app.js"></script>
+</body>
+</html>
